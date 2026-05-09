@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,7 +9,30 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+// إزالة أي عناصر تابعة لـ Lovable من الصفحة
+const removeLovableElements = () => {
+  const selectors = [
+    '#lovable-badge',
+    '#lovable',
+    '[id*="lovable"]',
+    '.lovable',
+  ];
+  selectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.remove();
+    });
+  });
+};
+
+const App = () => {
+  useEffect(() => {
+    removeLovableElements();
+    // فحص دوري لإزالة أي عناصر تُضاف ديناميكيًا
+    const interval = setInterval(removeLovableElements, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
