@@ -97,3 +97,14 @@ All colors MUST be HSL.
     font-weight: 700;
   }
 }
+
+/* إخفاء شارة Lovable */
+#lovable-badge,
+#lovable,
+[id*="lovable"],
+.lovable {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
