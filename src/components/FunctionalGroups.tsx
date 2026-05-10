@@ -54,7 +54,7 @@ export const FunctionalGroups = ({ onBack }: FunctionalGroupsProps) => {
       </div>
 
       <h2 className="font-dahka text-4xl text-primary text-center mb-8">
-        كاشف المجموعات الوظيفية
+        تحديد المجموعة الوظيفية
       </h2>
 
       <div className="max-w-2xl mx-auto mb-8">

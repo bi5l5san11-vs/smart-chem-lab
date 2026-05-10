@@ -59,7 +59,7 @@ const Index = () => {
                 variant="ghost"
                 className="w-full h-auto py-6 text-2xl hover:bg-primary/10"
               >
-                كاشف المجموعات الوظيفية
+                تحديد المجموعة الوظيفية
               </Button>
             </Card>
           </div>
