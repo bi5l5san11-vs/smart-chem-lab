@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChemicalCalculator } from "@/components/ChemicalCalculator";
 import { LewisStructure } from "@/components/LewisStructure";
+import { FunctionalGroups } from "@/components/FunctionalGroups";
 
-type ActiveSection = "home" | "calculator" | "lewis";
+type ActiveSection = "home" | "calculator" | "lewis" | "groups";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState<ActiveSection>("home");
@@ -25,7 +26,7 @@ const Index = () => {
             المشاريع
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
             <Card 
               className="p-8 bg-card hover:shadow-[var(--shadow-card)] transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-primary"
               onClick={() => setActiveSection("calculator")}
@@ -47,6 +48,18 @@ const Index = () => {
                 className="w-full h-auto py-6 text-2xl hover:bg-primary/10"
               >
                 رسم تراكيب لويس
+              </Button>
+            </Card>
+
+            <Card
+              className="p-8 bg-card hover:shadow-[var(--shadow-card)] transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-primary"
+              onClick={() => setActiveSection("groups")}
+            >
+              <Button
+                variant="ghost"
+                className="w-full h-auto py-6 text-2xl hover:bg-primary/10"
+              >
+                كاشف المجموعات الوظيفية
               </Button>
             </Card>
           </div>
@@ -71,6 +84,10 @@ const Index = () => {
       {/* قسم رسم تراكيب لويس */}
       {activeSection === "lewis" && (
         <LewisStructure onBack={() => setActiveSection("home")} />
+      )}
+
+      {activeSection === "groups" && (
+        <FunctionalGroups onBack={() => setActiveSection("home")} />
       )}
     </div>
   );
